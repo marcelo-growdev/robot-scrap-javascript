@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Scrapbook 2.0</title>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+      integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body>
+    <nav class="navbar sticky-top navbar-dark bg-dark">
+      <a class="navbar-brand" href="#">
+        <img
+          id="avatar"
+          src="https://www.gravatar.com/avatar?d=robohash"
+          width="30"
+          height="30"
+          class="d-inline-block align-top"
+          alt=""
+          loading="lazy"
+        />
+        Scrapbook 2.0
+      </a>
+      <button class="btn btn-danger btn-sm" onclick="clearStorage()">
+        Limpar recados
+      </button>
+    </nav>
+
+    <div class="container mt-">
+      <div class="row mb-5 mt-5">
+        <div class="col">
+          <form>
+            <div class="form-group">
+              <label for="title">Título</label>
+              <input
+                type="text"
+                class="form-control"
+                id="title"
+                aria-describedby="emailHelp"
+              />
+              <small id="emailHelp" class="form-text text-muted"
+                >Adicione um título.</small
+              >
+            </div>
+            <div class="form-group">
+              <label for="content">Conteúdo</label>
+              <input type="teste" class="form-control" id="content" />
+            </div>
+            <button
+              type="button"
+              onclick="createCard()"
+              class="btn btn-primary"
+            >
+              Salvar
+            </button>
+          </form>
+        </div>
+      </div>
+      <div class="row mb-5" id="mural"></div>
+
+      <!-- Modal -->
+      <div
+        class="modal fade"
+        id="editModal"
+        tabindex="-1"
+        role="dialog"
+        aria-labelledby="editModalLabel"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="editModalLabel">Editar Recado</h5>
+              <button
+                type="button"
+                class="close"
+                data-dismiss="modal"
+                aria-label="Close"
+              >
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <div class="form-group">
+                <label for="exampleInputEmail1">Título</label>
+                <input
+                  type="text"
+                  id="edit-title"
+                  class="form-control"
+                  aria-describedby="emailHelp"
+                />
+              </div>
+              <div class="form-group">
+                <label for="exampleInputPassword1">Conteúdo</label>
+                <input type="text" id="edit-content" class="form-control" />
+                <input type="hidden" id="edit-id" />
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button
+                type="button"
+                class="btn btn-secondary"
+                data-dismiss="modal"
+              >
+                Cancelar
+              </button>
+              <button
+                type="button"
+                id="btn_edit"
+                onclick="updateCard()"
+                class="btn btn-primary"
+                data-dismiss="modal"
+              >
+                Atualizar
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="./js/avatar.js"></script>
+    <script src="./js/scripts.js"></script>
+
+    <script
+      src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+      integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
